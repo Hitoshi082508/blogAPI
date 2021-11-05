@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
@@ -69,7 +70,13 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $blogData = $request->all();
+        $blog = new Blog;
+        $blog->text = $blogData['text'];
+        $blog->tag = $blogData['tag'];
+        $blog->title = $blogData['title'];
+        $blog->thumbnail = $blogData['thumbnail'];
+        $blog->save();
     }
 
     /**
