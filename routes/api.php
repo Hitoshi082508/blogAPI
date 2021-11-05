@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 
 
 /*
@@ -22,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/blogs', [BlogController::class, 'index']);
 Route::post('/blogs/update', [BlogController::class, 'update']);
+Route::get('/contact', [ContactController::class, 'index']);
+Route::post('/contact/create', [ContactController::class, 'create']);
